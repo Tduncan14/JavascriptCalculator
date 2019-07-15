@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="message">
+
+        <h1>Select Heads or Tails</h1>
+
+
+
+      
+
+    </div>
+
+    <div class="output"></div>
+
+    <button type="button">Heads</button>
+    <button type="button">Tails</button>
+    
+
+    <script>
+
+    const message= document.querySelector('.message');
+
+
+    let buttons = document.querySelectorAll('button');
+
+
+    const sayChoice = document.querySelector('.output');
+
+    let score = [0,0];
+
+
+ 
+    
+    const coinArray = ["Heads","Tails"];
+
+    // (function gamePlay(){
+
+    // buttons.forEach((button,i) =>{
+
+    //     button.addEventListener('click',(e)=>{
+
+    //         console.log(e.target)
+            
+    //      let chooseWinner = Math.floor(Math.random()*button[i]);
+
+
+    //      console.log(chooseWinner);
+    //     })
+
+    // })
+
+    // })();
+
+    for(let i = 0; i < buttons.length; i++){
+
+        console.log(buttons[i]);
+
+
+        buttons[i].addEventListener('click',tossCoin);
+      
+    }
+
+
+    function tossCoin(e){
+
+        console.log(e.target.innerText);
+
+        let playerGuess = e.target.innerText;
+        let computerToss = Math.floor(Math.random()*2);
+        let computerGuess = coinArray[computerToss];
+
+
+ 
+
+        if(playerGuess == computerGuess){
+           output = "Player Wins"
+            score[0]++
+        }
+
+        else{
+            output = "Computer Wins"
+             score[1]++
+        }
+
+        sayChoice.textContent = `Computer Selected  ${computerGuess}`;
+        message.innerHTML = `${output} Player score: ${score[0]} and Computer score: ${score[1]}`
+
+    }
+    
+    </script>
+</body>
+</html>
