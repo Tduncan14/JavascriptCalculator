@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="score"></div>
+
+    <div class="message"></div>
+    
+
+    <button type="button">Rock</button>
+    <button type="button">Scissors</button>
+    <button type="button">Paper</button>
+
+    <script>
+    
+    let score = document.querySelector('.score');
+
+
+    const message = document.querySelector('.message');
+
+
+    let buttons = document.querySelectorAll('button');
+
+
+    let computerChoices =['rock','paper','scissors'];
+
+
+
+    let pointSystem = [0,0];
+
+
+    buttons.forEach(button =>{
+
+
+    button.addEventListener('click', gameLogic)
+
+    });
+
+
+    function gameLogic (e){
+    
+    let playerChoice = e.target.innerText ;
+
+ 
+
+
+     let mathChoices = Math.floor(Math.random()*computerChoices.length);
+
+
+
+
+     let computerChoice = computerChoices[mathChoices];
+
+
+     console.log('computer choice',computerChoice);
+
+
+     getWinner(playerChoice,computerChoice);
+    }
+     
+
+     function getWinner(player,computer){
+
+        let chat ='';
+
+
+
+       let lowercase = player.toLowerCase();
+
+        console.log(lowercase);
+
+        if(lowercase === computer){
+
+
+         chat = `it is a draw the computer choice was ${computer}`;
+
+        }
+
+        else if(lowercase ==='rock' && computer ==='scissors'){
+         
+
+            chat = `you win and computer choice is ${computer} `;
+            pointSystem[0] ++ ;
+
+        }
+
+        else if(lowercase === 'scissors' && computer === 'paper'){
+
+            chat = `you win and computer choice is ${computer} `;
+            pointSystem[0] ++;
+        }
+
+        else if(lowercase === 'paper' && computer === 'rock'){
+
+            chat = `you win and computer choice is ${computer} `;
+            pointSystem[0] ++;
+        }
+
+
+        else {
+             chat = `you lose and the computer chose ${computer}`;
+             pointSystem[1]++;
+        }
+
+        score = innerHTML = pointSystem;
+
+         message.innerHTML = chat;
+
+             
+        }
+
+
+     
+    </script>
+</body>
+</html>
